@@ -57,6 +57,19 @@
 .user-link-container .login {
     background-position: -57px -88px;
 }
+.register-dialog {
+    font-size: 12px;
+}
+.register-dialog div {
+    padding: 5px 0;
+}
+.register-dialog label {
+    display: inline-block;
+    width: 70px;
+}
+
+
+
 .page-body {
     background-color: #faf8ef;
 }
