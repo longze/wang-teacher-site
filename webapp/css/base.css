@@ -1,1 +1,128 @@
 /* 网站基础样式，定义头部尾部和其他基础样式 */
+.header {
+    height: 283px;
+    overflow: hidden;
+    background-image: url(img/header-bg.png);
+}
+.header .nav {
+    position: relative;
+    width: 1024px;
+    height: 118px;
+    overflow: hidden;
+    margin: 164px auto 0 auto;
+    background: url(img/nav-icon.png) 152px -6px no-repeat;
+}
+.header .nav .menu {
+    width: 438px;
+    margin: 65px auto 0;
+    text-align: center;
+}
+.header .nav .menu a {
+    display: inline-block;
+    width: 101px;
+    height: 50px;
+    background: url(img/nav-text.png) -17px -14px;
+    cursor: pointer;
+}
+.header .nav .menu span {
+    display: inline-block;
+    width: 5px;
+    height: 50px;
+    background: url(img/nav-text.png) -2px -14px;
+}
+.header .nav .menu .a-1 {
+    background-position: -17px -14px;
+}
+.header .nav .menu .a-2 {
+    background-position: -112px -14px;
+}
+.header .nav .menu .a-3 {
+    background-position: -214px -14px;
+}
+.header .nav .menu .a-4 {
+    width: 109px;
+    background-position: -312px -14px;
+}
+.header .nav .user-link-container {
+    position: absolute;
+    top: 86px;
+    right: 132px;
+}
+.user-link-container span {
+    display: inline-block;
+    width: 47px;
+    height: 25px;
+    background: url(img/nav-text.png) -11px -88px;
+}
+.user-link-container .login {
+    background-position: -57px -88px;
+}
+.page-body {
+    background-color: #faf8ef;
+}
+.banner {
+    position: relative;
+}
+.banner .img-container {
+    margin: 0 auto;
+    width: 1024px;
+    height: 373px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.banner .menu-container {
+    position: absolute;
+    width: 100%;
+    height: 21px;
+    bottom: 30px;
+    text-align: center;
+}
+.banner .menu-container .item {
+    display: inline-block;
+    height: 7px;
+    width: 21px;
+    margin: 0 3px;
+    background-color: #aca7a7;
+}
+.banner .menu-container .item.active {
+    background-color: #a65959;
+}
+.reel-container {
+    padding-bottom: 18px;
+    background: url(img/reel-bg.png) center bottom repeat-x;
+}
+.reel-top {
+    width: 995px;
+    height: 17px;
+    margin: 16px auto 0;
+    background: url(img/reel-top.png) center center no-repeat;
+}
+.reel-body {
+    width: 942px;
+    padding: 8px;
+    border: solid 1px #d0d0ce;
+    box-shadow: 1px 1px 2px #d0d0ce,-1px 1px 2px #d0d0ce;
+    border-top: none;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.reel-body .item {
+    display: inline-block;
+    width: 275px;
+    height: 182px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.reel-body .item-margin-left {
+    margin-left: 54px;
+}
+.footer {
+    width: 1024px;
+    padding-top: 250px;
+    height: 52px;
+    margin: 0 auto;
+    background: url(img/footer-bg.png) center center no-repeat;
+    color: #585858;
+    text-align: center;
+    font-size: 12px;
+}
