@@ -162,3 +162,6 @@ $('.login').click(function () {
         timerId = window.setTimeout(clickNextItem, timeSpace);
     }
 })();
+
+
+
