@@ -2,23 +2,23 @@
 /* 头部 */
 .header {
     height: 283px;
-    overflow: hidden;
     background-image: url(img/header-bg.png);
 }
 .header .nav {
     position: relative;
     width: 1024px;
     height: 118px;
-    overflow: hidden;
-    margin: 164px auto 0 auto;
-    background: url(img/nav-icon.png) 152px -6px no-repeat;
+    padding-top: 164px;
+    margin: 0 auto 0 auto;
+    background: url(img/nav-icon.png) 152px 158px no-repeat;
 }
 .header .nav .menu {
-    width: 438px;
-    margin: 65px auto 0;
+    width: 458px;
+    padding-top: 65px;
+    margin: 0 auto 0;
     text-align: center;
 }
-.header .nav .menu a {
+.header .nav .menu .nav-main-link {
     display: inline-block;
     width: 101px;
     height: 50px;
@@ -39,6 +39,30 @@
 }
 .header .nav .menu .a-3 {
     background-position: -214px -14px;
+    position: relative;
+}
+.header .nav .menu .a-3 div {
+    display: none;
+    position: absolute;
+    width: 160px;
+    top: 46px;
+    left: -35px;
+    z-index: 10;
+    background: #EBE5BF;
+    text-align: center;
+    padding: 5px 0;
+}
+.header .nav .menu .a-3:hover div {
+    display: block;
+}
+.header .nav .menu .a-3 div a {
+    display: block;
+    padding: 5px 15px;
+    color: #040100;
+    text-decoration: none;
+}
+.header .nav .menu .a-3 div a:hover {
+    background: #B5AB69;
 }
 .header .nav .menu .a-4 {
     width: 109px;
@@ -48,7 +72,7 @@
 /* 注册登录 */
 .header .nav .user-link-container {
     position: absolute;
-    top: 86px;
+    top: 250px;
     right: 132px;
 }
 .user-link-container span {
