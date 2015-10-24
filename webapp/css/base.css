@@ -1,4 +1,16 @@
 /* 网站基础样式，定义头部尾部和其他基础样式 */
+/* 清除浮动 */
+.c-f,
+.clear-float {
+    zoom: 1; /* 兼容IE7及以下 */
+}
+.c-f:after,
+.clear-float:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
 /* 头部 */
 .header {
     height: 283px;
@@ -148,15 +160,40 @@
     margin: 0 auto;
     background-color: #fff;
 }
-.reel-body .item {
-    display: inline-block;
-    width: 275px;
-    height: 182px;
-    overflow: hidden;
-    margin-bottom: 5px;
+.reel-body .item-line {
+    width: 293px;
+    padding: 0 10px;
+    float: left;
 }
-.reel-body .item-margin-left {
-    margin-left: 54px;
+.reel-body .item {
+    display: block;
+    padding: 5px;
+    width: 280px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    box-shadow: 3px 3px 9px #949191;
+}
+.reel-body .item .cover {
+    width: 100%;
+}
+.reel-body .item .title {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 0;
+}
+.reel-body .item .description {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* 起名字部分 */
+.chinese-name-container {
+
+}
+.chinese-name-container {
+    width: 942px;
+    margin: 0 auto;
 }
 
 /* 尾部 */
