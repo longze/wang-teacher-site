@@ -60,7 +60,7 @@
     top: 46px;
     left: -35px;
     z-index: 10;
-    background: #EBE5BF;
+    background: #ebe5bf;
     text-align: center;
     padding: 5px 0;
 }
@@ -74,13 +74,12 @@
     text-decoration: none;
 }
 .header .nav .menu .a-3 div a:hover {
-    background: #B5AB69;
+    background: #b5ab69;
 }
 .header .nav .menu .a-4 {
     width: 109px;
     background-position: -312px -14px;
 }
-
 /* 注册登录 */
 .header .nav .user-link-container {
     position: absolute;
@@ -92,6 +91,7 @@
     width: 47px;
     height: 25px;
     background: url(img/nav-text.png) -11px -88px;
+    cursor: pointer;
 }
 .user-link-container .login {
     background-position: -57px -88px;
@@ -107,8 +107,6 @@
     width: 140px;
     text-align: right;
 }
-
-
 /* 中间部分 */
 .page-body {
     background-color: #faf8ef;
@@ -155,7 +153,7 @@
     width: 942px;
     padding: 8px;
     border: solid 1px #d0d0ce;
-    box-shadow: 1px 1px 2px #d0d0ce,-1px 1px 2px #d0d0ce;
+    box-shadow: 1px 1px 2px #d0d0ce, -1px 1px 2px #d0d0ce;
     border-top: none;
     margin: 0 auto;
     background-color: #fff;
@@ -189,13 +187,42 @@
 }
 /* 起名字部分 */
 .chinese-name-container {
-
-}
-.chinese-name-container {
-    width: 942px;
+    width: 833px;
+    padding: 10px;
     margin: 0 auto;
 }
-
+.chinese-name-container .create-name {
+    width: 400px;
+    padding-top: 332px;
+    float: left;
+    background: url("img/create-name.png") no-repeat;
+}
+.chinese-name-container .other-product-container {
+    width: 400px;
+    float: left;
+}
+.chinese-name-container .item {
+    background: url("img/plus.png") no-repeat 5px center;
+    padding-left: 50px;
+    margin-bottom: 10px;
+}
+.chinese-name-container .item .product-picture {
+    display: block;
+    width: 382px;
+}
+.chinese-name-container .item .price {
+    clear: both;
+    display: inline-block;
+    padding: 10px 0;
+}
+.chinese-name-container .total {
+    background: url("img/equal.png") no-repeat 0 center;
+    padding: 20px 0 20px 40px;
+}
+.chinese-name-container .total:first-child {
+    background: url("img/equal.png") no-repeat 5px center;
+    padding: 149px 0 149px 50px;
+}
 /* 尾部 */
 .footer {
     width: 1024px;
