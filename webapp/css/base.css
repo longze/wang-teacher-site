@@ -96,6 +96,12 @@
 .user-link-container .login {
     background-position: -57px -88px;
 }
+.user-link-container .user-name {
+    display: inline-block;
+    color: #795008;
+    text-decoration: none;
+    line-height: 28px;
+}
 .register-dialog {
     font-size: 12px;
 }
@@ -193,24 +199,24 @@
 }
 .chinese-name-container .create-name {
     width: 400px;
-    padding-top: 332px;
     float: left;
-    background: url("img/create-name.png") no-repeat;
 }
 .chinese-name-container .other-product-container {
     width: 400px;
     float: left;
 }
-.chinese-name-container .item {
+.chinese-name-container .item,
+.other-product-container .item {
+    float: left;
     background: url("img/plus.png") no-repeat 5px center;
     padding-left: 50px;
     margin-bottom: 10px;
 }
-.chinese-name-container .item .product-picture {
+.chinese-name-container .product-picture {
     display: block;
     width: 382px;
 }
-.chinese-name-container .item .price {
+.chinese-name-container .price {
     clear: both;
     display: inline-block;
     padding: 10px 0;
@@ -233,4 +239,55 @@
     color: #585858;
     text-align: center;
     font-size: 12px;
+}
+.space-15 {
+    height: 15px;
+}
+.user-container {
+    width: 942px;
+    padding: 8px;
+    margin: 0 auto;
+    border: solid 1px #d0d0ce;
+    background-color: #ffffff;
+    border-shadow: 1px 1px 2px #d0d0ce, -1px 1px 2px #d0d0ce;
+}
+.user-container .title {
+    line-height: 1.5;
+    border-bottom: 4px solid #aaaaaa;
+    margin: 3px 0 5px 0;
+}
+.user-container .msg-line {
+    line-height: 1.5;
+}
+.user-container .order-title {
+    border-bottom: 2px solid #aaaaaa;
+}
+.user-container .data-empty {
+    text-align: center;
+    color: #a8a8a8;
+    padding: 5px 0;
+}
+.order {
+
+}
+.order .item {
+    float: left;
+    background: url("img/plus.png") no-repeat 5px center;
+    padding-left: 50px;
+}
+.order .item:first-child {
+    background: none;
+    padding: 0;
+}
+.order .item .product-picture {
+    width: 150px;
+    display: block;
+}
+.order .item .price {
+    display: block;
+    line-height: 1.5;
+}
+.order .total {
+    background: url("img/equal.png") no-repeat 0 center;
+    padding: 20px 0 20px 40px;
 }
