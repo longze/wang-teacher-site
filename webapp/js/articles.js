@@ -1,5 +1,5 @@
 // 初始化数据
-var groupId = parseInt( location.href.replace(/.+\.html#/, ''));
+var groupId = parseInt(location.href.replace(/.+\.html#/, ''));
 var data = {
     pageNum: 1
 };
@@ -11,7 +11,21 @@ if (!isNaN(groupId)) {
 getArticles();
 
 // 监听滚动条
+$(window).scroll(scrollCallback);
+function scrollCallback() {
+    var bodyHeight = $('body').height();
+    var scrollTop = $(window).scrollTop();
 
+    if (bodyHeight - scrollTop - $(this).height() < 500) {
+        getArticles();
+
+        // 需要延迟触发，否则一次加载多页
+        $(window).unbind('scroll');
+        setTimeout(function () {
+            $(window).scroll(scrollCallback);
+        }, 1500);
+    }
+}
 
 // 获取文章数据
 function getArticles() {
@@ -19,26 +33,26 @@ function getArticles() {
         url: '/articles',
         data: data,
         success: function (data) {
-            appendToDom (data.data);
+            appendToDom(data.data);
         }
     });
     data.pageNum++;
 }
 
 // 填充文章数据到页面
-function appendToDom (data) {
+function appendToDom(data) {
     var itemLines = $('.item-line');
 
     for (var i = 0; i < data.length; i++) {
         (function (data) {
             var html = ''
-            + '<a class="item">'
-            + (data.coverImgUrl ? '    <img class="cover" src="' + data.coverImgUrl + '"/>': '')
-            + '    <h2 class="title">' + data.title + '</h2>'
-            + '    <div class="description">'
-            + (data.description ? data.description : '')
-            + '    </div>'
-            + '</a>';
+                + '<a class="item">'
+                + (data.coverImgUrl ? '    <img class="cover" src="' + data.coverImgUrl + '"/>' : '')
+                + '    <h2 class="title">' + data.title + '</h2>'
+                + '    <div class="description">'
+                + (data.description ? data.description : '')
+                + '    </div>'
+                + '</a>';
             setTimeout(function () {
                 getShortestItem(itemLines).append(html);
             }, 300);
@@ -46,7 +60,7 @@ function appendToDom (data) {
     }
 }
 
-function getShortestItem (itemLines) {
+function getShortestItem(itemLines) {
     var height = 0;
     var index = 0;
 
