@@ -11,6 +11,12 @@
     height: 0;
     clear: both;
 }
+
+.data-empty {
+    text-align: center;
+    color: #a8a8a8;
+    padding: 5px 0;
+}
 /* 头部 */
 .header {
     height: 283px;
@@ -197,7 +203,7 @@
     padding: 10px;
     margin: 0 auto;
 }
-.chinese-name-container .create-name {
+.chinese-name-container .default-product {
     width: 400px;
     float: left;
 }
@@ -261,11 +267,6 @@
 }
 .user-container .order-title {
     border-bottom: 2px solid #aaaaaa;
-}
-.user-container .data-empty {
-    text-align: center;
-    color: #a8a8a8;
-    padding: 5px 0;
 }
 .order {
 

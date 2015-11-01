@@ -5,9 +5,9 @@ module.exports = {
     contentType: 'json',
     data: function (request, response, response200, response500) {
 
-        var s = {
+        return {
             code: 1,   // 1 成功，0 失败
-            message: '失败原因，成功忽略此参数',
+            message: '',
             data: [ // 业务数据
                 {
                     id: '1',
@@ -67,8 +67,6 @@ module.exports = {
                 }
             ]
         };
-
-        return s;
     }
 }
 ;
