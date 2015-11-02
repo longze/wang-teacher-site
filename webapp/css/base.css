@@ -11,6 +11,9 @@
     height: 0;
     clear: both;
 }
+.t-c {
+    text-align: center;
+}
 
 .data-empty {
     text-align: center;
@@ -291,4 +294,10 @@
 .order .total {
     background: url("img/equal.png") no-repeat 0 center;
     padding: 20px 0 20px 40px;
+}
+#buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: -3px 0 0 20px;
+    cursor: pointer;
 }

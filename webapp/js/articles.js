@@ -31,6 +31,7 @@ function scrollCallback() {
 function getArticles() {
     $.ajax({
         url: '/articles',
+        type: 'POST',
         data: data,
         success: function (data) {
             appendToDom(data.data);

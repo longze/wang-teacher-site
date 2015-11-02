@@ -4,20 +4,20 @@ function bindRegister() {
         var html = ''
             + '<div class="register-dialog">'
             + '    <div>'
-            + '        <label>Email：</label><input type="text"/>'
+            + '        <label>Email：</label><input id="email" type="text"/>'
             + '    </div>'
             + '    <div>'
-            + '        <label>User Name：</label><input type="text"/>'
+            + '        <label>User Name：</label><input id="userName" type="text"/>'
             + '    </div>'
             + '    <div>'
-            + '        <label>Password：</label><input type="password"/>'
+            + '        <label>Password：</label><input id="password" type="password"/>'
             + '    </div>'
             + '    <div>'
-            + '        <label>Confirm Password：</label><input type="password"/>'
+            + '        <label>Confirm Password：</label><input id="confirmPassword" type="password"/>'
             + '    </div>'
             + '</div>';
-
-        $(html).dialog({
+        var $dialog = $(html);
+        $dialog.dialog({
             // title: '注册',
             open: function () {
                 $('.ui-dialog-titlebar-close').html('X');
@@ -28,6 +28,32 @@ function bindRegister() {
                     text: 'Register',
                     click: function () {
                         var $dialog = $(this);
+                        var email = $('#email', $dialog).val();
+                        var userName = $('#userName', $dialog).val();
+                        var password = $('#password', $dialog).val();
+                        var confirmPassword = $('#confirmPassword', $dialog).val();
+
+                        // 验证
+                        if (!(/^[\w_\.]+@\w+\.[a-z]+$/.test(email))) {
+
+                        }
+                        if (userName !== '') {
+
+                        }
+
+                        $.ajax({
+                            url: '/register',
+                            type: 'POST',
+                            data: {
+                                'email': email,
+                                'userName': userName,
+                                'password': password
+                            },
+                            success: function () {
+                                $dialog.dialog('destroy');
+                            }
+                        });
+
                     }
                 },
                 {
@@ -47,10 +73,10 @@ function bindLogin() {
         var html = ''
             + '<div class="register-dialog">'
             + '    <div>'
-            + '        <label>Email：</label><input type="text"/>'
+            + '        <label>Email：</label><input id="email" type="text"/>'
             + '    </div>'
             + '    <div>'
-            + '        <label>Password：</label><input type="password"/>'
+            + '        <label>Password：</label><input id="password" type="password"/>'
             + '    </div>'
             + '</div>';
 
@@ -59,12 +85,43 @@ function bindLogin() {
             open: function () {
                 $('.ui-dialog-titlebar-close').html('X');
             },
+            close: function () {
+
+            },
             width: 360,
             buttons: [
                 {
                     text: 'Login',
                     click: function () {
                         var $dialog = $(this);
+                        var email = $('#email', $dialog).val();
+                        var password = $('#password', $dialog).val();
+
+                        // 验证
+                        if (!(/^[\w_\.]+@\w+\.[a-z]+$/.test(email))) {
+
+                        }
+                        if (userName !== '') {
+
+                        }
+
+                        $.ajax({
+                            url: '/login',
+                            type: 'POST',
+                            data: {
+                                'email': email,
+                                'password': password
+                            },
+                            success: function (data) {
+                                $dialog.dialog('destroy');
+                                data = data.data;
+                                // 写cookie
+                                $.cookie('userName', data.userName);
+                                $.cookie('sign', data.sign);
+                                $.cookie('id', data.id);
+                                userLinkContainer.html('<a class="user-name" href="user.html">' + data.userName + '</a>');
+                            }
+                        });
                     }
                 },
                 {
@@ -79,9 +136,9 @@ function bindLogin() {
 }
 
 // 模拟登陆
-$.cookie('userName', 'jack');
+//$.cookie('userName', 'jack');
 // 模拟退出
-//$.cookie('userName', '', { expires: -1 });
+$.cookie('userName', '', {expires: -1});
 
 var userLinkContainer = $('.user-link-container');
 var userName = $.cookie('userName');
@@ -92,6 +149,5 @@ if (!userName) {
 }
 // 已登录
 else {
-
     userLinkContainer.html('<a class="user-name" href="user.html">' + userName + '</a>');
 }
