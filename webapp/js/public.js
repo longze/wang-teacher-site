@@ -18,10 +18,11 @@ function bindRegister() {
             + '</div>';
         var $dialog = $(html);
         $dialog.dialog({
-            // title: '注册',
+            title: 'Register',
             open: function () {
                 $('.ui-dialog-titlebar-close').html('X');
             },
+            modal: true,
             width: 360,
             buttons: [
                 {
@@ -81,10 +82,11 @@ function bindLogin() {
             + '</div>';
 
         $(html).dialog({
-            // title: '注册',
+            title: 'Login',
             open: function () {
                 $('.ui-dialog-titlebar-close').html('X');
             },
+            modal: true,
             close: function () {
 
             },
@@ -115,10 +117,13 @@ function bindLogin() {
                             success: function (data) {
                                 $dialog.dialog('destroy');
                                 data = data.data;
+
                                 // 写cookie
                                 $.cookie('userName', data.userName);
+                                $.cookie('email', data.email);
                                 $.cookie('sign', data.sign);
-                                $.cookie('id', data.id);
+                                $.cookie('uid', data.uid);
+
                                 userLinkContainer.html('<a class="user-name" href="user.html">' + data.userName + '</a>');
                             }
                         });
@@ -138,7 +143,7 @@ function bindLogin() {
 // 模拟登陆
 //$.cookie('userName', 'jack');
 // 模拟退出
-$.cookie('userName', '', {expires: -1});
+//$.cookie('userName', '', {expires: -1});
 
 var userLinkContainer = $('.user-link-container');
 var userName = $.cookie('userName');

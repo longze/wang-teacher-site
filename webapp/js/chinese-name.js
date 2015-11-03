@@ -71,14 +71,25 @@ function bindBuyButton() {
         var ids = [];
         $('[data-price]:checked').each(function () {
             var str = $(this).val() + ':1';
-            ids.push[str];
+            ids.push(str);
         });
+
+        // 未登录
+        if ($.cookie('sign') === undefined) {
+            $('.login').click();
+            return;
+        }
+        else {
+            var uid = $.cookie('uid');
+            var sign = $.cookie('sign');
+        }
+
         $.ajax({
             url: '/buy',
             type: 'POST',
             data: {
-                uid: '',
-                sign: '',
+                uid: uid,
+                sign: sign,
                 productIds: ids.join(',')
             },
             success: function (data) {
@@ -88,9 +99,10 @@ function bindBuyButton() {
                     + '    <a href="' + data.data + '" target="blank">点击支付</a>'
                     + '</div>';
                 $(html).dialog({
-                   open: function () {
-                       $('.ui-dialog-titlebar-close').html('X');
-                   }
+                    modal: true,
+                    open: function () {
+                        $('.ui-dialog-titlebar-close').html('X');
+                    }
                 });
             }
         });

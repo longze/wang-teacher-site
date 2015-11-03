@@ -10,8 +10,9 @@ module.exports = {
             message: '',
             data: {
                 uid: '1',
-                userName: 'jack',
-                sign: '1234'
+                userName: 'jack123',
+                sign: '1234',
+                email: 'longze@163.com'
             }
         };
     }

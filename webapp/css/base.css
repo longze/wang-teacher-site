@@ -272,7 +272,8 @@
     border-bottom: 2px solid #aaaaaa;
 }
 .order {
-
+    margin: 10px 0;
+    border-bottom: 1px solid #aaaaaa;
 }
 .order .item {
     float: left;
