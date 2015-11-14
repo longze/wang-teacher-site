@@ -1,0 +1,46 @@
+
+.user-container {
+    width: 942px;
+    padding: 8px;
+    margin: 0 auto;
+    border: solid 1px #d0d0ce;
+    background-color: #ffffff;
+    border-shadow: 1px 1px 2px #d0d0ce, -1px 1px 2px #d0d0ce;
+}
+.user-container .title {
+    line-height: 1.5;
+    border-bottom: 4px solid #aaaaaa;
+    margin: 3px 0 5px 0;
+}
+.user-container .msg-line {
+    line-height: 1.5;
+}
+.user-container .order-title {
+    border-bottom: 2px solid #aaaaaa;
+}
+.order {
+    margin: 10px 0;
+    border-bottom: 1px solid #aaaaaa;
+}
+.order .item {
+    float: left;
+    background: url("img/plus.png") no-repeat 9px center;
+    padding-left: 50px;
+}
+.order .item:first-child {
+    background: none;
+    padding: 0;
+}
+.order .item .product-picture {
+    width: 150px;
+    height: 150px;
+    display: block;
+}
+.order .item .price {
+    display: block;
+    line-height: 1.5;
+}
+.order .total {
+    background: url("img/equal.png") no-repeat 0 center;
+    padding: 20px 0 20px 40px;
+}

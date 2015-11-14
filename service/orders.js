@@ -11,23 +11,23 @@ module.exports = {
             data: [ // 业务数据
                 [{
                     id: '1',
-                    coverImgUrl: '/css/img/create-name.png',
+                    coverImgUrl: '/upload/chinese-name.jpg',
                     description: '描述信息',
                     title: '起中文名', // 必填字段
                     price: 1
                 },
                 {
                     id: '2',
-                    coverImgUrl: '/css/img/create-name.png',
+                    coverImgUrl: '/upload/cup.jpg',
                     description: '描述信息',
-                    title: '骨质瓷印名水杯', // 必填字段
+                    title: '青花瓷图章印名杯', // 必填字段
                     price: 2
                 },
                 {
                     id: '3',
-                    coverImgUrl: '/css/img/create-name.png',
+                    coverImgUrl: '/upload/face.jpg',
                     description: '描述信息',
-                    title: '印名T恤', // 必填字段
+                    title: '京剧脸谱', // 必填字段
                     price: 3
                 }]
             ]
