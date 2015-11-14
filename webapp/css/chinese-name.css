@@ -6,28 +6,33 @@
     margin: 0 auto;
 }
 .chinese-name-container .default-product {
-    width: 400px;
-    float: left;
 }
 .chinese-name-container .other-product-container {
-    width: 400px;
-    float: left;
 }
 .chinese-name-container .item,
 .other-product-container .item {
     float: left;
-    background: url("img/plus.png") no-repeat 5px center;
-    padding-left: 50px;
+    background: url("img/plus.png") no-repeat -2px 60px;
+    padding-left: 40px;
+    padding-right: 10px;
     margin-bottom: 10px;
 }
 .chinese-name-container .product-picture {
     display: block;
-    width: 382px;
+    max-width: 830px;
+}
+.other-product-container .item .product-picture {
+    width: 150px;
+    height: 150px;
 }
 .chinese-name-container .price {
     clear: both;
     display: inline-block;
     padding: 10px 0;
+    max-width: 170px;
+}
+.chinese-name-container .price input {
+    margin-left: -19px;
 }
 .chinese-name-container .total {
     background: url("img/equal.png") no-repeat 0 center;
