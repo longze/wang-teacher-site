@@ -35,6 +35,10 @@ function getArticles() {
         data: data,
         success: function (data) {
             appendToDom(data.data);
+            // 当数据为空时解绑滚动条事件
+            if (data.data === undefined || data.data.length === 0) {
+                $(window).unbind('scroll');
+            }
         }
     });
     data.pageNum++;
