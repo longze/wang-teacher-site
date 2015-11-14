@@ -1,0 +1,39 @@
+
+/* 起名字部分 */
+.chinese-name-container {
+    width: 833px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.chinese-name-container .default-product {
+    width: 400px;
+    float: left;
+}
+.chinese-name-container .other-product-container {
+    width: 400px;
+    float: left;
+}
+.chinese-name-container .item,
+.other-product-container .item {
+    float: left;
+    background: url("img/plus.png") no-repeat 5px center;
+    padding-left: 50px;
+    margin-bottom: 10px;
+}
+.chinese-name-container .product-picture {
+    display: block;
+    width: 382px;
+}
+.chinese-name-container .price {
+    clear: both;
+    display: inline-block;
+    padding: 10px 0;
+}
+.chinese-name-container .total {
+    background: url("img/equal.png") no-repeat 0 center;
+    padding: 20px 0 20px 40px;
+}
+.chinese-name-container .total:first-child {
+    background: url("img/equal.png") no-repeat 5px center;
+    padding: 149px 0 149px 50px;
+}

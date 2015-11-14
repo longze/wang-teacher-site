@@ -1,0 +1,46 @@
+.reel-container {
+    padding-bottom: 18px;
+    background: url(img/reel-bg.png) center bottom repeat-x;
+}
+.reel-top {
+    width: 995px;
+    height: 17px;
+    margin: 16px auto 0;
+    background: url(img/reel-top.png) center center no-repeat;
+}
+.reel-body {
+    width: 942px;
+    padding: 8px;
+    border: solid 1px #d0d0ce;
+    box-shadow: 1px 1px 2px #d0d0ce, -1px 1px 2px #d0d0ce;
+    border-top: none;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.reel-body .item-line {
+    width: 293px;
+    padding: 0 10px;
+    float: left;
+}
+.reel-body .item {
+    display: block;
+    padding: 5px;
+    width: 280px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    box-shadow: 3px 3px 9px #949191;
+}
+.reel-body .item .cover {
+    width: 100%;
+}
+.reel-body .item .title {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 0;
+}
+.reel-body .item .description {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}

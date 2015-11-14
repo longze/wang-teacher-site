@@ -4,7 +4,7 @@ function bindRegister() {
         var html = ''
             + '<div class="register-dialog">'
             + '    <div>'
-            + '        <label>Email：</label><input id="email" type="text"/>'
+            + '        <label>Email：</label><input id="email" type="text"/><span class="check-notice">1223</span>'
             + '    </div>'
             + '    <div>'
             + '        <label>User Name：</label><input id="userName" type="text"/>'
@@ -23,7 +23,7 @@ function bindRegister() {
                 $('.ui-dialog-titlebar-close').html('X');
             },
             modal: true,
-            width: 360,
+            width: 400,
             buttons: [
                 {
                     text: 'Register',
