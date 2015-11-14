@@ -4,16 +4,16 @@ function bindRegister() {
         var html = ''
             + '<div class="register-dialog">'
             + '    <div>'
-            + '        <label>Email：</label><input id="email" type="text"/><span class="check-notice">1223</span>'
+            + '        <label>Email：</label><input id="email" type="text"/><span class="check-notice hide"></span>'
             + '    </div>'
             + '    <div>'
-            + '        <label>User Name：</label><input id="userName" type="text"/>'
+            + '        <label>User Name：</label><input id="userName" type="text"/><span class="check-notice hide"></span>'
             + '    </div>'
             + '    <div>'
-            + '        <label>Password：</label><input id="password" type="password"/>'
+            + '        <label>Password：</label><input id="password" type="password"/><span class="check-notice hide"></span>'
             + '    </div>'
             + '    <div>'
-            + '        <label>Confirm Password：</label><input id="confirmPassword" type="password"/>'
+            + '        <label>Confirm Password：</label><input id="confirmPassword" type="password"/><span class="check-notice hide"></span>'
             + '    </div>'
             + '</div>';
         var $dialog = $(html);
@@ -23,7 +23,7 @@ function bindRegister() {
                 $('.ui-dialog-titlebar-close').html('X');
             },
             modal: true,
-            width: 400,
+            width: 450,
             buttons: [
                 {
                     text: 'Register',
@@ -34,12 +34,42 @@ function bindRegister() {
                         var password = $('#password', $dialog).val();
                         var confirmPassword = $('#confirmPassword', $dialog).val();
 
+                        var checkResult = true;
                         // 验证
                         if (!(/^[\w_\.]+@\w+\.[a-z]+$/.test(email))) {
-
+                            checkResult = false;
+                            $('#email', $dialog).parent().find('.check-notice').removeClass('hide').html('* format error');
                         }
-                        if (userName !== '') {
+                        else {
+                            $('#email', $dialog).parent().find('.check-notice').addClass('hide')
+                        }
 
+                        if (userName === '') {
+                            checkResult = false;
+                            $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('* none empty');
+                        }
+                        else {
+                            $('#userName', $dialog).parent().find('.check-notice').addClass('hide')
+                        }
+
+                        if (password === '') {
+                            checkResult = false;
+                            $('#password', $dialog).parent().find('.check-notice').removeClass('hide').html('* none empty');
+                        }
+                        else {
+                            $('#password', $dialog).parent().find('.check-notice').addClass('hide')
+                        }
+
+                        if (password !== confirmPassword) {
+                            checkResult = false;
+                            $('#confirmPassword', $dialog).parent().find('.check-notice').removeClass('hide').html('* confirm error');
+                        }
+                        else {
+                            $('#confirmPassword', $dialog).parent().find('.check-notice').addClass('hide')
+                        }
+
+                        if (checkResult === false) {
+                            return;
                         }
 
                         $.ajax({
@@ -50,8 +80,18 @@ function bindRegister() {
                                 'userName': userName,
                                 'password': password
                             },
-                            success: function () {
-                                $dialog.dialog('destroy');
+                            success: function (data) {
+                                // 用户名已被注册
+                                if (data.code === 0) {
+                                    $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('* has been used');
+                                }
+                                else if (data.code === 2) {
+                                    $('#email', $dialog).parent().find('.check-notice').removeClass('hide').html('* has been used');
+                                }
+                                else {
+                                    $dialog.dialog('destroy');
+                                    $('.login').click();
+                                }
                             }
                         });
 

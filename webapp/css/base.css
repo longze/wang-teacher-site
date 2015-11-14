@@ -11,6 +11,9 @@
     height: 0;
     clear: both;
 }
+.hide {
+    display: none;
+}
 .t-c {
     text-align: center;
 }
