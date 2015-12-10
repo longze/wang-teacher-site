@@ -1,14 +1,20 @@
-// 初始化数据
-var groupId = parseInt(location.href.replace(/.+\.html#/, ''));
-var data = {
-    pageNum: 1
-};
-if (!isNaN(groupId)) {
-    data.groupId = groupId;
-}
+var data;
+initArticleData();
 
-// 填充第一批数据
-getArticles();
+function initArticleData() {
+    // 初始化数据
+    var groupId = parseInt(location.href.replace(/.+\.html#/, ''));
+    data = {
+        pageNum: 1
+    };
+    if (!isNaN(groupId)) {
+        data.groupId = groupId;
+    }
+    $('.item-line').empty();
+    // 填充第一批数据
+    getArticles();
+    console.log(groupId);
+}
 
 // 监听滚动条
 $(window).scroll(scrollCallback);
@@ -82,3 +88,10 @@ function getShortestItem(itemLines) {
 
     return itemLines.eq(index);
 }
+
+// 分类切换事件绑定
+$('[hook-articles] a').click(function () {
+    window.setTimeout(function () {
+        initArticleData();
+    });
+});
