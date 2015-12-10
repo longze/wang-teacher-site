@@ -28,6 +28,7 @@
 }
 /* 中间部分 */
 .page-body {
+    border-top: 1px solid #faf8ef;
     background-color: #faf8ef;
 }
 /* 尾部 */
