@@ -24,15 +24,15 @@ function appendToDom(data) {
     else {
         // 默认商品
         html = ''
-            + '<img class="product-picture" src="' + data[0].coverImgUrl + '"/>'
+            + '<img class="product-picture" src="' + data[0].product_img + '"/>'
             + '    <label class="price">'
-            + '    <input type="checkbox" value="' + data[0].id + '" checked disabled data-price="' + data[0].price + '"/> '
-            + data[0].title + data[0].price + '$'
+            + '    <input type="checkbox" value="' + data[0].id + '" checked disabled data-price="' + data[0].product_price + '"/> '
+            + data[0].product_name + data[0].product_price + '$'
             + '</label>';
         $('.default-product').html(html);
 
         // 总价
-        $('.total').html('总价：<span>' + data[0].price + '</span>$<button id="buy-button">马上购买</button>');
+        $('.total').html('总价：<span>' + data[0].product_price + '</span>$<button id="buy-button">马上购买</button>');
         bindBuyButton();
     }
 
@@ -42,10 +42,10 @@ function appendToDom(data) {
 
             html = ''
                 + '<div class="item">'
-                + '<img class="product-picture" src="' + data[i].coverImgUrl + '"/>'
+                + '<img class="product-picture" src="' + data[i].product_img + '"/>'
                 + '    <label class="price">'
-                + '    <input type="checkbox" value="' + data[i].id + '" data-price="' + data[i].price + '"/>'
-                + data[i].title + data[i].price + ' $'
+                + '    <input type="checkbox" value="' + data[i].id + '" data-price="' + data[i].product_price + '"/>'
+                + data[i].product_name + data[i].product_price + ' $'
                 + '</label>'
                 + '</div>';
             $('.other-product-container').append(html);

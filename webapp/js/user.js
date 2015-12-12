@@ -31,9 +31,9 @@ function appendOrdersToDom(data) {
         for (var j = 0; j < orderItemData.length; j++) {
             html += ''
                 + '<div class="item">'
-                + '    <img class="product-picture" src="' + orderItemData[j].coverImgUrl + '"/>'
+                + '    <img class="product-picture" src="' + orderItemData[j].product_img + '"/>'
                 + '    <label class="price">'
-                + '    ' + orderItemData[j].title + orderItemData[j].price + '$'
+                + '    ' + orderItemData[j].product_name + orderItemData[j].product_price + '$'
                 + '    </label>'
                 + '</div>';
         }

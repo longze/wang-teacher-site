@@ -36,9 +36,11 @@ function scrollCallback() {
 // 获取文章数据
 function getArticles() {
     $.ajax({
+        // url: '/articles',
         url: '/Home/Article/index',
         type: 'POST',
         data: data,
+        dataType: 'JSON',
         success: function (data) {
             appendToDom(data.data);
             // 当数据为空时解绑滚动条事件
