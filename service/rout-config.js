@@ -14,6 +14,13 @@ module.exports = [
     {
         requestMethodType: 'POST',
         contentType: 'json',
+        urlPath: '/Home/Article/detail',
+        modelPath: '/article-detail',
+        methodName: 'data'
+    },
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
         urlPath: '/Home/Product/buy',
         modelPath: '/buy',
         methodName: 'data'

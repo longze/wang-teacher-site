@@ -13,7 +13,6 @@ function initArticleData() {
     $('.item-line').empty();
     // 填充第一批数据
     getArticles();
-    console.log(groupId);
 }
 
 // 监听滚动条
