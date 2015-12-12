@@ -36,7 +36,7 @@ function scrollCallback() {
 // 获取文章数据
 function getArticles() {
     $.ajax({
-        url: '/articles',
+        url: '/Home/Article/index',
         type: 'POST',
         data: data,
         success: function (data) {

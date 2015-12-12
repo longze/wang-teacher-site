@@ -76,7 +76,7 @@ function bindRegister() {
                         }
 
                         $.ajax({
-                            url: '/register',
+                            url: '/Home/Passport/register',
                             type: 'POST',
                             data: {
                                 'email': email,
@@ -166,7 +166,7 @@ function bindLogin() {
                         }
 
                         $.ajax({
-                            url: '/login',
+                            url: '/Home/Passport/login',
                             type: 'POST',
                             data: {
                                 'email': email,

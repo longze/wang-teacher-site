@@ -4,7 +4,7 @@ getProducts();
 // 获取商品列表
 function getProducts() {
     $.ajax({
-        url: '/products',
+        url: '/Home/Product/list',
         type: 'POST',
         success: function (data) {
             appendToDom(data.data);
@@ -85,7 +85,7 @@ function bindBuyButton() {
         }
 
         $.ajax({
-            url: '/buy',
+            url: '/Home/Product/buy',
             type: 'POST',
             data: {
                 uid: uid,

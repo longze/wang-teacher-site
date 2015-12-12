@@ -11,7 +11,7 @@ if ($.cookie('sign')) {
 // 获取订单信息
 function getOrders() {
     $.ajax({
-        url: '/orders',
+        url: '/api/Home/Order/list',
         data: {
             uid: $.cookie('uid'),
             sign: $.cookie('sign')
