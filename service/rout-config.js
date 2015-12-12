@@ -14,8 +14,37 @@ module.exports = [
     {
         requestMethodType: 'POST',
         contentType: 'json',
+        urlPath: '/Home/Product/buy',
+        modelPath: '/buy',
+        methodName: 'data'
+    },
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
+        urlPath: '/Home/Passport/login',
+        modelPath: '/login',
+        methodName: 'data'
+    },
+
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
+        urlPath: '/api/Home/Order/list',
+        modelPath: '/orders',
+        methodName: 'data'
+    },
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
         urlPath: '/Home/Product/list',
         modelPath: '/products',
+        methodName: 'data'
+    },
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
+        urlPath: '/Home/Passport/register',
+        modelPath: '/register',
         methodName: 'data'
     }
 ];
