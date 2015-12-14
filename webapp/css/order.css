@@ -11,6 +11,12 @@
     line-height: 1.5;
     border-bottom: 4px solid #aaaaaa;
     margin: 3px 0 5px 0;
+    min-height: 25px;
+}
+.user-container .title a {
+    float: right;
+    color: #795008;
+    cursor: pointer;
 }
 .user-container .msg-line {
     line-height: 1.5;

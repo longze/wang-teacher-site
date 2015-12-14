@@ -7,17 +7,49 @@ if ($.cookie('sign')) {
 
     getOrders();
 }
-
+// 退出
+$('#signOut').click(function () {
+    $.cookie('sign', '', { expires: -1 });
+    $.cookie('email', '', { expires: -1 });
+    $.cookie('userName', '', { expires: -1 });
+    window.location.href = '/index.html';
+});
 // 获取订单信息
 function getOrders() {
     $.ajax({
-        url: '/api/Home/Order/list',
+        url: '/Home/Order/list',
         data: {
             uid: $.cookie('uid'),
             sign: $.cookie('sign')
         },
         success: function (data) {
             appendOrdersToDom(data.data)
+        },
+        error: function () {
+            var html = ''
+                + '<div style="text-align: center;line-height: 47px;padding-bottom: 0;">'
+                + '    order load fail.'
+                + '</div>';
+
+            $(html).dialog({
+                title: 'Error',
+                open: function () {
+                    $('.ui-dialog-titlebar-close').html('X');
+                },
+                close: function () {
+                    $(this).dialog('destroy');
+                },
+                modal: true,
+                width: 450,
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        click: function () {
+                            $(this).dialog('destroy');
+                        }
+                    }
+                ]
+            });
         }
     });
 }
@@ -44,3 +76,4 @@ function appendOrdersToDom(data) {
         orderItemContainer.append('<div class="data-empty"> 暂无订单 < / div >');
     }
 }
+

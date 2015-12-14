@@ -30,7 +30,7 @@ function appendToDom(data) {
     var reelBody = $('.reel-body');
     var html = ''
         + '<h1 class="article-detail-title">' + data.topic + '</h1>'
-        + '<div class="article-detail-content">' + data.content + '</div>';
+        + '<div class="article-detail-content">' + data.article + '</div>';
     reelBody.append(html);
 
 }

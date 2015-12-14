@@ -20,6 +20,7 @@ function appendToDom(data) {
     if (data.length === 0) {
         html = '<div class="data-empty">站长还未添加商品</div>';
         $('.chinese-name-container').append(html);
+        $('.total').hide();
     }
     else {
         // 默认商品
@@ -103,6 +104,32 @@ function bindBuyButton() {
                     open: function () {
                         $('.ui-dialog-titlebar-close').html('X');
                     }
+                });
+            },
+            error: function () {
+                var html = ''
+                    + '<div style="text-align: center;line-height: 47px;padding-bottom: 0;">'
+                    + '    submit order fail.'
+                    + '</div>';
+
+                $(html).dialog({
+                    title: 'Error',
+                    open: function () {
+                        $('.ui-dialog-titlebar-close').html('X');
+                    },
+                    close: function () {
+                        $(this).dialog('destroy');
+                    },
+                    modal: true,
+                    width: 450,
+                    buttons: [
+                        {
+                            text: 'Cancel',
+                            click: function () {
+                                $(this).dialog('destroy');
+                            }
+                        }
+                    ]
                 });
             }
         });

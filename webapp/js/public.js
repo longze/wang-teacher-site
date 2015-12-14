@@ -47,17 +47,17 @@ function bindRegister() {
                             $('#email', $dialog).parent().find('.check-notice').addClass('hide')
                         }
 
-                        if (userName === '') {
+                        if (userName.length < 4) {
                             checkResult = false;
-                            $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('* none empty');
+                            $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('* least four letters');
                         }
                         else {
                             $('#userName', $dialog).parent().find('.check-notice').addClass('hide')
                         }
 
-                        if (password === '') {
+                        if (password.length < 6) {
                             checkResult = false;
-                            $('#password', $dialog).parent().find('.check-notice').removeClass('hide').html('* none empty');
+                            $('#password', $dialog).parent().find('.check-notice').removeClass('hide').html('* least six letters');
                         }
                         else {
                             $('#password', $dialog).parent().find('.check-notice').addClass('hide')
@@ -85,11 +85,13 @@ function bindRegister() {
                             },
                             success: function (data) {
                                 // 用户名已被注册
-                                if (data.code === 0) {
-                                    $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('* has been used');
-                                }
-                                else if (data.code === 2) {
-                                    $('#email', $dialog).parent().find('.check-notice').removeClass('hide').html('* has been used');
+                                if (data.code !== 0) {
+                                    if (data.msg === '该电子邮件已被使用！') {
+                                        $('#email', $dialog).parent().find('.check-notice').removeClass('hide').html('has been used');
+                                    }
+                                    if (data.msg === '该用户名已被使用！') {
+                                        $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('has been used');
+                                    }
                                 }
                                 else {
                                     $dialog.dialog('destroy');
@@ -117,7 +119,7 @@ function bindLogin() {
         var html = ''
             + '<div class="register-dialog">'
             + '    <div>'
-            + '        <label>Email：</label><input id="email" type="text"/><span class="check-notice hide"></span>'
+            + '        <label>user name：</label><input id="userName" type="text"/><span class="check-notice hide"></span>'
             + '    </div>'
             + '    <div>'
             + '        <label>Password：</label><input id="password" type="password"/><span class="check-notice hide"></span>'
@@ -139,18 +141,18 @@ function bindLogin() {
                     text: 'Login',
                     click: function () {
                         var $dialog = $(this);
-                        var email = $('#email', $dialog).val();
+                        var userName = $('#userName', $dialog).val();
                         var password = $('#password', $dialog).val();
 
                         // 验证
                         var checkResult = true;
                         // 验证
-                        if (email === '') {
+                        if (userName === '') {
                             checkResult = false;
-                            $('#email', $dialog).parent().find('.check-notice').removeClass('hide').html('* no empty');
+                            $('#userName', $dialog).parent().find('.check-notice').removeClass('hide').html('* no empty');
                         }
                         else {
-                            $('#email', $dialog).parent().find('.check-notice').addClass('hide')
+                            $('#userName', $dialog).parent().find('.check-notice').addClass('hide')
                         }
 
                         if (password === '') {
@@ -169,18 +171,17 @@ function bindLogin() {
                             url: '/Home/Passport/login',
                             type: 'POST',
                             data: {
-                                'email': email,
+                                'userName': userName,
                                 'password': password
                             },
                             success: function (data) {
-                                data = data.data;
 
-                                if (data.code === 0) {
+                                if (data.code === 1) {
                                     $('#password', $dialog).parent().find('.check-notice').removeClass('hide').html('* check fail');
                                     return;
                                 }
                                 $dialog.dialog('destroy');
-
+                                data = data.data;
                                 // 写cookie
                                 $.cookie('userName', data.userName);
                                 $.cookie('email', data.email);
