@@ -33,7 +33,7 @@ function appendToDom(data) {
         $('.default-product').html(html);
 
         // 总价
-        $('.total').html('总价：<span>' + data[0].product_price + '</span>$<button id="buy-button">马上购买</button>');
+        $('.total').html('Total:<span>' + data[0].product_price + '</span>$<button id="buy-button">Buy Now</button>');
         bindBuyButton();
     }
 
