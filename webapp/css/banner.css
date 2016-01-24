@@ -5,11 +5,24 @@
     margin-top: 5px;
 }
 .banner .img-container {
+    position: relative;
     margin: 0 auto;
     width: 1024px;
     height: 373px;
     background-position: center center;
     background-repeat: no-repeat;
+}
+.banner .img-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.banner .img-container img.active {
+    opacity: 1;
 }
 .banner .menu-container {
     position: absolute;

@@ -41,7 +41,6 @@ function appendToDom(data) {
     // 其他商品
     if (data.length > 1) {
         for (var i = 1; i < data.length; i++) {
-
             html = ''
                 + '<div class="item">'
                 + '<img class="product-picture" src="' + data[i].product_img + '"/>'

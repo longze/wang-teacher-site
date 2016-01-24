@@ -49,21 +49,29 @@
 
             menuContainer.find('.item').removeClass(activeClass);
             $this.addClass(activeClass);
+            var activeImgItemDom = imgContainer.find('.' + activeClass);
             // 平滑过渡处理
-            bannerContainer.animate({
+            activeImgItemDom.animate({
+                    // 先消失
                     opacity: '0'
                 },
                 500,
                 function () {
+                    activeImgItemDom.removeClass(activeClass);
                     //bannerContainer.css({
                     //    'background-color': config[index].backgroundColor
                     //});
-                    imgContainer.css({
-                        'background-image': 'url(' + config[index].imgUrl + ')'
-                    });
-                    bannerContainer.animate({
-                        opacity: '1'
-                    }, 500);
+                    //imgContainer.css({
+                    //    'background-image': 'url(' + config[index].imgUrl + ')'
+                    //});
+                    config[index].imgItemDom.animate({
+                            // 再出现
+                            opacity: '1'
+                        },
+                        500,
+                        function () {
+                            config[index].imgItemDom.addClass(activeClass);
+                        });
                     timerId = window.setTimeout(clickNextItem, timeSpace + 2000);
                     // 2000用来消除用户操作造成的心理延时
                 }
@@ -72,9 +80,16 @@
         menuContainer.append(menuItemHtml);
         config[i].menuItemDom = menuItemHtml;
 
+        var activeClassStr = '';
         if (i === 0) {
             menuItemHtml.click();
+            activeClassStr = ' class="active"';
         }
+
+        // 填充图片
+        var imgHtml = $('<img src="' + config[i].imgUrl + '"' + activeClassStr + '>');
+        imgContainer.append(imgHtml);
+        config[i].imgItemDom = imgHtml;
     }
     var timeSpace = 5000; // 图片切换间隔时间
     timerId = window.setTimeout(clickNextItem, timeSpace);
