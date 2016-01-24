@@ -1,3 +1,9 @@
+body {
+    position: relative;
+    box-sizing: content-box;
+    background: url(img/web-bg.jpg);
+    padding-bottom: 59px; /* 为版权占位 */
+}
 /* 网站基础样式，定义头部尾部和其他基础样式 */
 /* 清除浮动 */
 .c-f,
@@ -29,15 +35,20 @@
 /* 中间部分 */
 .page-body {
     border-top: 1px solid #faf8ef;
-    background-color: #faf8ef;
+
 }
 /* 尾部 */
 .footer {
-    width: 1024px;
-    padding-top: 250px;
-    height: 52px;
-    margin: 0 auto;
-    background: url(img/footer-bg.png) center center no-repeat;
+    /*width: 1024px;*/
+    /*padding-top: 250px;*/
+    /*height: 52px;*/
+    /*margin: 0 auto;*/
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid #faf8ef;
+    background-color: rgba(255,255,255,.5);
     color: #585858;
     text-align: center;
     font-size: 12px;

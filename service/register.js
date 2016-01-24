@@ -6,7 +6,7 @@ module.exports = {
     data: function (request, response, response200, response500) {
 
         return {
-            code: 1,   // 1 成功，0 失败
+            code: 0,   // 0 成功，1 失败
             message: '',
             data: {
 

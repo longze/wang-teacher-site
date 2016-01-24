@@ -2,6 +2,7 @@
 .banner {
     position: relative;
     height: 373px;
+    margin-top: 5px;
 }
 .banner .img-container {
     margin: 0 auto;

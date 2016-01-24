@@ -55,9 +55,9 @@
                 },
                 500,
                 function () {
-                    bannerContainer.css({
-                        'background-color': config[index].backgroundColor
-                    });
+                    //bannerContainer.css({
+                    //    'background-color': config[index].backgroundColor
+                    //});
                     imgContainer.css({
                         'background-image': 'url(' + config[index].imgUrl + ')'
                     });

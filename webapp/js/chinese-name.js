@@ -24,13 +24,14 @@ function appendToDom(data) {
     }
     else {
         // 默认商品
+        var attr = ''
+            + ' checked disabled'
+            + ' data-price="' + data[0].product_price + '"'
+            + ' value="' + data[0].product_price + '"';
         html = ''
-            + '<img class="product-picture" src="' + data[0].product_img + '"/>'
-            + '    <label class="price">'
-            + '    <input type="checkbox" value="' + data[0].id + '" checked disabled data-price="' + data[0].product_price + '"/> '
-            + data[0].product_name + data[0].product_price + '$'
-            + '</label>';
-        $('.default-product').html(html);
+            + '    <input type="checkbox"'+ attr + '/> '
+            + data[0].product_price + '$';
+        $('.name-price').append(html);
 
         // 总价
         $('.total').html('Total:<span>' + data[0].product_price + '</span>$<button id="buy-button">Buy Now</button>');

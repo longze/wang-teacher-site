@@ -220,3 +220,11 @@ if (!userName) {
 else {
     userLinkContainer.html('<a class="user-name" href="user.html">' + userName + '</a>');
 }
+
+//
+var windowHeight = $(window).height();
+var $body = $('body');
+var bodyHeight = $body.height();
+if (bodyHeight < windowHeight) {
+    $body.css('min-height', (windowHeight - 52) + 'px');
+}

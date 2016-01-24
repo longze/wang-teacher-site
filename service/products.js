@@ -6,7 +6,7 @@ module.exports = {
     data: function (request, response, response200, response500) {
 
         return {
-            code: 1,   // 1 成功，0 失败
+            code: 0,   // 0 成功，1 失败
             message: '',
             data: [ // 业务数据
                 {
@@ -27,7 +27,7 @@ module.exports = {
                     id: '3',
                     product_img: '/upload/face.jpg',
                     product_ad: '描述信息',
-                    product_price: '京剧脸谱', // 必填字段
+                    product_name: '京剧脸谱', // 必填字段
                     product_price: 3
                 }
             ]
