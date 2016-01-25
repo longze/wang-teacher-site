@@ -57,9 +57,11 @@ function appendToDom(data) {
 
     for (var i = 0; i < data.length; i++) {
         (function (data) {
+            var img = data.coverImgUrl ? '    <img class="cover" src="' + data.coverImgUrl + '"/>' : '';
+            var href = ' href="/article-detail.html#' + data.id + '"';
             var html = ''
-                + '<a class="item">'
-                + (data.coverImgUrl ? '    <img class="cover" src="' + data.coverImgUrl + '"/>' : '')
+                + '<a class="item"' + href + '>'
+                + img
                 + '    <h2 class="title">' + data.title + '</h2>'
                 + '    <div class="description">'
                 + (data.description ? data.description : '')
