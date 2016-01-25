@@ -127,10 +127,11 @@
 }
 .chinese-name-container .total {
     background: url("img/equal.png") no-repeat 0 center;
-    padding: 20px 0 20px 40px;
+    padding: 5px 40px;
+    margin: 10px 0;
 }
 .chinese-name-container .total:first-child {
-    background: url("img/equal.png") no-repeat 5px center;
+    background: url("img/equal.png") no-repeat 0 1px;
     padding: 149px 0 149px 50px;
 }
 #buy-button {
