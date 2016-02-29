@@ -3,6 +3,7 @@
 .header {
     height: 283px;
     background-image: url(img/header-bg.png);
+    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .header .nav {
     position: relative;
@@ -10,44 +11,38 @@
     height: 118px;
     padding-top: 164px;
     margin: 0 auto 0 auto;
-    background: url(img/nav-icon.png) 152px 158px no-repeat;
+    background: url(img/nav-icon.png) 70px 158px no-repeat;
 }
 .header .nav .menu {
     width: 500px;
-    padding-top: 65px;
+    padding-top: 44px;
     margin: 0 auto 0;
     text-align: center;
 }
 .header .nav .menu .nav-main-link {
+    position: relative;
     display: inline-block;
-    width: 101px;
-    height: 50px;
-    background: url(img/nav-text.png) -17px -14px;
+    padding: 0 10px;
+    color: #19160d;
+    text-decoration: none;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    vertical-align: middle;
+    line-height: 32px;
 }
 .header .nav .menu span {
     display: inline-block;
+    vertical-align: middle;
     width: 5px;
-    height: 50px;
-    background: url(img/nav-text.png) -2px -14px;
-}
-.header .nav .menu .a-1 {
-    background-position: -17px -14px;
-}
-.header .nav .menu .a-2 {
-    background-position: -112px -14px;
-}
-.header .nav .menu .a-3 {
-    background-position: -214px -14px;
-    position: relative;
+    height: 32px;
+    background: url(img/nav-text.png) -2px -27px;
 }
 .header .nav .menu .a-3 div {
     display: none;
     position: absolute;
+    z-index: 100;
     width: 160px;
-    top: 46px;
-    left: -35px;
-    z-index: 10;
     background: #ebe5bf;
     text-align: center;
     padding: 5px 0;
@@ -64,21 +59,18 @@
 .header .nav .menu .a-3 div a:hover {
     background: #b5ab69;
 }
-.header .nav .menu .a-4 {
-    width: 109px;
-    background-position: -312px -14px;
-}
 /* 注册登录 */
 .header .nav .user-link-container {
     position: absolute;
     top: 250px;
-    right: 132px;
+    right: 0px;
+    color: #825b17;
 }
 .user-link-container span {
     display: inline-block;
-    width: 47px;
-    height: 25px;
-    background: url(img/nav-text.png) -11px -88px;
+    padding: 0 10px;
+    margin: 0 5px;
+    line-height: 25px;
     cursor: pointer;
 }
 .user-link-container .login {
