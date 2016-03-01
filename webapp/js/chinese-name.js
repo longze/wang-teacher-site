@@ -29,12 +29,12 @@ function appendToDom(data) {
             + ' data-price="' + data[0].product_price + '"'
             + ' value="' + data[0].product_price + '"';
         html = ''
-            + '    <input type="checkbox"'+ attr + '/> '
-            + data[0].product_price + '$';
+            + '    <input type="checkbox"'+ attr + '/> $'
+            + data[0].product_price;
         $('.name-price').append(html);
 
         // 总价
-        $('.total').html('Total:<span>' + data[0].product_price + '</span>$<button id="buy-button">Buy Now</button>');
+        $('.total').html('Total:$<span>' + data[0].product_price + '</span><button id="buy-button">Buy Now</button>');
         bindBuyButton();
     }
 
@@ -46,7 +46,9 @@ function appendToDom(data) {
                 + '<img class="product-picture" src="' + data[i].product_img + '"/>'
                 + '    <label class="price">'
                 + '    <input type="checkbox" value="' + data[i].id + '" data-price="' + data[i].product_price + '"/>'
-                + data[i].product_name + data[i].product_price + ' $'
+                + data[i].product_name
+                + ' <br/>$'
+                + data[i].product_price
                 + '</label>'
                 + '</div>';
             $('.other-product-container').append(html);
