@@ -10,7 +10,7 @@
     float: left;
 }
 .chinese-name-container .default-product .user-info {
-    width: 470px;
+    width: 490px;
     float: left;
     padding: 10px 5px 0 21px;
 }
@@ -110,7 +110,7 @@
 }
 .chinese-name-container .product-picture {
     display: block;
-    max-width: 830px;
+    width: 415px;
 }
 .other-product-container .item .product-picture {
     width: 150px;
