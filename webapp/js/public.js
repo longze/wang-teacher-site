@@ -39,7 +39,7 @@ function bindRegister() {
 
                         var checkResult = true;
                         // 验证
-                        if (!(/^[\w_\.]+@\w+\.[a-z]+$/.test(email))) {
+                        if (!(/^[\w_\.]+@\w+\.[a-z]+/.test(email))) {
                             checkResult = false;
                             $('#email', $dialog).parent().find('.check-notice').removeClass('hide').html('* format error');
                         }
