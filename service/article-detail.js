@@ -10,7 +10,7 @@ module.exports = {
             message: '',
             data: {
                 topic: '文章标题',
-                content: '文章内容'
+                article: '文章内容'
             }
         };
     }

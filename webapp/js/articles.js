@@ -21,14 +21,14 @@ function scrollCallback() {
     var bodyHeight = $('body').height();
     var scrollTop = $(window).scrollTop();
 
-    if (bodyHeight - scrollTop - $(this).height() < 500) {
+    if (bodyHeight - scrollTop - $(this).height() < 50) {
         getArticles();
 
         // 需要延迟触发，否则一次加载多页
         $(window).unbind('scroll');
         setTimeout(function () {
             $(window).scroll(scrollCallback);
-        }, 1500);
+        }, 2000);
     }
 }
 

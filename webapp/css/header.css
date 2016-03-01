@@ -46,6 +46,8 @@
     background: #ebe5bf;
     text-align: center;
     padding: 5px 0;
+    font-size: 14px;
+    opacity: .9;
 }
 .header .nav .menu .a-3:hover div {
     display: block;
