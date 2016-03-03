@@ -32,7 +32,13 @@ module.exports = [
         modelPath: '/login',
         methodName: 'data'
     },
-
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
+        urlPath: '/Home/Passport/forgetPassword',
+        modelPath: '/forget-password',
+        methodName: 'data'
+    },
     {
         requestMethodType: 'POST',
         contentType: 'json',

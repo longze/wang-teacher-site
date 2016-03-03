@@ -113,16 +113,50 @@ function bindRegister() {
     });
 }
 
+function forgetPassword (userName) {
+    $.ajax({
+        url: '/Home/Passport/forgetPassword',
+        type: 'POST',
+        data: {
+            'userName': userName
+        },
+        success: function (data) {
+            // 新开弹框提示结果
+            var html = '<div>' + data.msg + '</div>';
+            $(html).dialog({
+                title: 'Forget Password',
+                modal: true,
+                width: 450,
+                buttons: [
+                    {
+                        text: 'Sure',
+                        click: function () {
+                            $(this).dialog('destroy');
+                        }
+                    }
+                ]});
+        }
+    });
+}
+
 // 绑定登录按钮事件
 function bindLogin() {
     $('.login').click(function () {
         var html = ''
             + '<div class="register-dialog">'
             + '    <div>'
-            + '        <label>user name：</label><input id="userName" type="text"/><span class="check-notice hide"></span>'
+            + '        <label>User name：</label>'
+            + '        <input id="userName" type="text"/>'
+            + '        <span class="check-notice hide"></span>'
             + '    </div>'
             + '    <div>'
-            + '        <label>Password：</label><input id="password" type="password"/><span class="check-notice hide"></span>'
+            + '        <label>Password：</label>'
+            + '        <input id="password" type="password"/>'
+            + '        <span class="check-notice hide"></span>'
+            + '    </div>'
+            + '    <div>'
+            + '        <label></label>'
+            + '        <a class="forget-password">Forget password</a>'
             + '    </div>'
             + '</div>';
 
@@ -130,6 +164,18 @@ function bindLogin() {
             title: 'Login',
             open: function () {
                 $('.ui-dialog-titlebar-close').html('X');
+
+                // 忘记密码
+                $('.forget-password').click(function () {
+                    // 验证
+                    if (userName === '') {
+                        $('#userName').parent().find('.check-notice').removeClass('hide').html('* no empty');
+                    }
+                    else {
+                        $('#userName').parent().find('.check-notice').addClass('hide');
+                        forgetPassword(userName);
+                    }
+                });
             },
             close: function () {
                 $(this).dialog('destroy');
@@ -187,8 +233,7 @@ function bindLogin() {
                                 $.cookie('email', data.email);
                                 $.cookie('sign', data.sign);
                                 $.cookie('uid', data.uid);
-
-                                userLinkContainer.html('<a class="user-name" href="user.html">' + data.userName + '</a>');
+                                location.reload();
                             }
                         });
                     }
@@ -218,7 +263,18 @@ if (!userName) {
 }
 // 已登录
 else {
-    userLinkContainer.html('<a class="user-name" href="user.html">' + userName + '</a>');
+    var html = ''
+        + '<a class="user-name" href="user.html">' + userName + '</a>'
+        + '<span id="signOut">Out</span>';
+    userLinkContainer.html(html);
+
+    // 绑定退出
+    $('#signOut').click(function () {
+        $.cookie('sign', '', {expires: -1});
+        $.cookie('email', '', {expires: -1});
+        $.cookie('userName', '', {expires: -1});
+        window.location.href = '/index.html';
+    });
 }
 
 //

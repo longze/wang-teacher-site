@@ -7,13 +7,7 @@ if ($.cookie('sign')) {
 
     getOrders();
 }
-// 退出
-$('#signOut').click(function () {
-    $.cookie('sign', '', { expires: -1 });
-    $.cookie('email', '', { expires: -1 });
-    $.cookie('userName', '', { expires: -1 });
-    window.location.href = '/index.html';
-});
+
 // 获取订单信息
 function getOrders() {
     $.ajax({

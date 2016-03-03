@@ -99,4 +99,8 @@
     color: red;
     padding-left: 5px;
 }
+.forget-password {
+    color: #825b17;
+    cursor: pointer;
+}
 
