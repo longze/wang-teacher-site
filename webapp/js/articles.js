@@ -3,7 +3,7 @@ initArticleData();
 
 function initArticleData() {
     // 初始化数据
-    var groupId = parseInt(location.href.replace(/.+\.html#/, ''));
+    var groupId = parseInt(location.href.replace(/.+\.html\?groupId=/, ''));
     data = {
         pageNum: 1
     };
@@ -58,7 +58,7 @@ function appendToDom(data) {
     for (var i = 0; i < data.length; i++) {
         (function (data) {
             var img = data.coverImgUrl ? '    <img class="cover" src="' + data.coverImgUrl + '"/>' : '';
-            var href = ' href="/article-detail.html#' + data.id + '"';
+            var href = ' href="/article-detail.html?id=' + data.id + '"';
             var html = ''
                 + '<a class="item"' + href + '>'
                 + img

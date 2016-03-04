@@ -3,7 +3,7 @@ initArticleData();
 
 function initArticleData() {
     // 初始化数据
-    var id = parseInt(location.href.replace(/.+\.html#/, ''));
+    var id = parseInt(location.href.replace(/.+\.html\?id=/, ''));
     data = {
         id: id
     };
@@ -28,9 +28,11 @@ function getArticleDetail() {
 // 填充文章数据到页面
 function appendToDom(data) {
     var reelBody = $('.reel-body');
+    data.article = data.article.replace(/&lt;/ig, '<');
+    data.article = data.article.replace(/&gt;/ig, '>');
     var html = ''
         + '<h1 class="article-detail-title">' + data.topic + '</h1>'
         + '<div class="article-detail-content">' + data.article + '</div>';
-    reelBody.append(html);
+    reelBody.html(html);
 
 }
