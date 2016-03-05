@@ -30,6 +30,8 @@ function appendToDom(data) {
     var reelBody = $('.reel-body');
     data.article = data.article.replace(/&lt;/ig, '<');
     data.article = data.article.replace(/&gt;/ig, '>');
+    data.article = data.article.replace(/&quot;/ig, '"');
+    data.article = data.article.replace(/&amp;/ig, '&');
     var html = ''
         + '<h1 class="article-detail-title">' + data.topic + '</h1>'
         + '<div class="article-detail-content">' + data.article + '</div>';
