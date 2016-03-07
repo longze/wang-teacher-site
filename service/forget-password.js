@@ -7,7 +7,7 @@ module.exports = {
 
         return {
             code: 0,   // 0 成功，1 失败
-            message: '用户名未注册 或 已发送邮件请重置'
+            msg: '用户名未注册 或 已发送邮件请重置'
         };
     }
 }

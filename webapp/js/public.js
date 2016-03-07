@@ -113,7 +113,7 @@ function bindRegister() {
     });
 }
 
-function forgetPassword (userName) {
+function forgetPassword (userName, $this, $loginDialog) {
     $.ajax({
         url: '/Home/Passport/forgetPassword',
         type: 'POST',
@@ -121,6 +121,8 @@ function forgetPassword (userName) {
             'userName': userName
         },
         success: function (data) {
+            $loginDialog.dialog('destroy');
+            $this.html('Has send email.');
             // 新开弹框提示结果
             var html = '<div>' + data.msg + '</div>';
             $(html).dialog({
@@ -164,16 +166,20 @@ function bindLogin() {
             title: 'Login',
             open: function () {
                 $('.ui-dialog-titlebar-close').html('X');
-
+                var $loginDialog = $(this);
                 // 忘记密码
                 $('.forget-password').click(function () {
+                    var $this = $(this);
+                    var userName = $('#userName').val();
                     // 验证
                     if (userName === '') {
                         $('#userName').parent().find('.check-notice').removeClass('hide').html('* no empty');
                     }
                     else {
                         $('#userName').parent().find('.check-notice').addClass('hide');
-                        forgetPassword(userName);
+                        forgetPassword(userName, $this, $loginDialog);
+                        $this.unbind('click');
+                        $this.html('Sending email...');
                     }
                 });
             },
