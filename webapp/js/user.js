@@ -6,6 +6,42 @@ if ($.cookie('sign')) {
     $('.user-name-text').html(userName);
 
     getOrders();
+
+    //
+    $('.change-pwd-text').click(function () {
+        var $changePwdContainer = $('.change-pwd-container');
+        var hideClass = 'hide';
+        if ($changePwdContainer.hasClass(hideClass)) {
+            $changePwdContainer.removeClass(hideClass);
+        }
+        else {
+            $changePwdContainer.addClass(hideClass);
+        }
+
+    });
+    // 改变密码
+    $('#changeSubmit').click(function () {
+        var $old = $('#old');
+        var oldPwd = $old.val();
+        var $new = $('#new');
+        var newPwd = $new.val();
+        if (oldPwd === '' || newPwd === '') {
+            alert('can not be empty.');
+            return;
+        }
+        $.ajax({
+            url: '/Home/Passport/updatePassword',
+            data: {
+                uid: $.cookie('uid'),
+                old_pwd: oldPwd,
+                new_pwd: newPwd
+            },
+            type: 'POST',
+            success: function (data) {
+                $.cookie('uid', data.data);
+            }
+        });
+    });
 }
 
 // 获取订单信息
@@ -16,6 +52,7 @@ function getOrders() {
             uid: $.cookie('uid'),
             sign: $.cookie('sign')
         },
+        type: 'POST',
         success: function (data) {
             appendOrdersToDom(data.data)
         },
@@ -67,7 +104,7 @@ function appendOrdersToDom(data) {
         orderItemContainer.append(html);
     }
     if (data.length === 0) {
-        orderItemContainer.append('<div class="data-empty"> 暂无订单 < / div >');
+        orderItemContainer.append('<div class="data-empty"> none order </div >');
     }
 }
 

@@ -60,12 +60,12 @@
     right: -6px;
     transform: skew(25deg);
 }
-.default-product .user-info .field {
+.user-info .field {
     width: 100%;
     height: 45px;
     margin: 10px 0;
 }
-.default-product .user-info .field .label {
+.user-info .field .label {
     display: inline-block;
     width: 136px;
     text-align: right;
@@ -74,11 +74,23 @@
     font-size: 16px;
     color: #535353;
 }
-.default-product .user-info .field .edit {
+.user-container .user-info .field .label {
+    width: 170px;
+}
+.user-container .user-info .field .textfield {
+    width: 230px;
+}
+.user-container button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 3px 0 10px 175px;
+    cursor: pointer;
+}
+.user-info .field .edit {
     display: inline-block;
     height: 40px;
 }
-.default-product .user-info .textfield {
+.user-info .textfield {
     height: 40px;
     line-height: 38px;
     box-sizing: border-box;

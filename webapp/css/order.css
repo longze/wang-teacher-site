@@ -50,3 +50,16 @@
     background: url("img/equal.png") no-repeat 0 center;
     padding: 20px 0 20px 40px;
 }
+.change-pwd-title {
+    text-align: right;
+}
+.change-pwd-text {
+    display: inline-block;
+    color: #795008;
+    text-decoration: none;
+    line-height: 28px;
+    cursor: pointer;
+}
+.change-pwd-container {
+
+}

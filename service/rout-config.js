@@ -42,7 +42,7 @@ module.exports = [
     {
         requestMethodType: 'POST',
         contentType: 'json',
-        urlPath: '/api/Home/Order/list',
+        urlPath: '/Home/Order/list',
         modelPath: '/orders',
         methodName: 'data'
     },
@@ -58,6 +58,13 @@ module.exports = [
         contentType: 'json',
         urlPath: '/Home/Passport/register',
         modelPath: '/register',
+        methodName: 'data'
+    },
+    {
+        requestMethodType: 'POST',
+        contentType: 'json',
+        urlPath: '/Home/Passport/updatePassword',
+        modelPath: '/update-pwd',
         methodName: 'data'
     }
 ];
