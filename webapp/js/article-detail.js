@@ -32,6 +32,7 @@ function appendToDom(data) {
     data.article = data.article.replace(/&gt;/ig, '>');
     data.article = data.article.replace(/&quot;/ig, '"');
     data.article = data.article.replace(/&amp;/ig, '&');
+    data.article = data.article.replace(/&nbsp;/ig, ' ');
     var html = ''
         + '<h1 class="article-detail-title">' + data.topic + '</h1>'
         + '<div class="article-detail-content">' + data.article + '</div>';
