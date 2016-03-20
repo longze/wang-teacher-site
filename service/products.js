@@ -11,7 +11,7 @@ module.exports = {
             data: [ // 业务数据
                 {
                     id: '1',
-                    product_img: '/upload/chinese-name.jpg',
+                    product_img: '/upload/book.png',
                     product_ad: '描述信息',
                     product_name: '起中文名', // 必填字段
                     product_price: 1

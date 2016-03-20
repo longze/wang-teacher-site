@@ -32,6 +32,7 @@ function appendToDom(data) {
             + '    <input type="checkbox"'+ attr + '/> $'
             + data[0].product_price;
         $('.name-price').append(html);
+        $('#chinese-name-picture').attr('src', data[0].product_img);
 
         // 总价
         $('.total').html('Total:$<span>' + data[0].product_price + '</span><button id="buy-button">Buy Now</button>');
